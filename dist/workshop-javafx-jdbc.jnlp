@@ -9,11 +9,11 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
     <jar href="lib\mysql-connector-java-5.1.49.jar" size="1006904" download="eager" />
-    <jar href="workshop-javafx-jdbc.jar" size="2642" download="eager" />
+    <jar href="workshop-javafx-jdbc.jar" size="2438" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="workshop-javafx-jdbc" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="workshop.javafx.jdbc.WorkshopJavafxJdbc"  name="workshop-javafx-jdbc" />
+  <jfx:javafx-desc  width="800" height="600" main-class="workshop.javafx.jdbc.Main"  name="workshop-javafx-jdbc" />
   <update check="always"/>
 </jnlp>
