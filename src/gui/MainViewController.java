@@ -36,7 +36,7 @@ public class MainViewController implements Initializable{
      
     @FXML
     public void DepartmentAction(){
-        System.out.println("Department");
+        loidView("/gui/DepartmentList.fxml");
     }
     
      @FXML
