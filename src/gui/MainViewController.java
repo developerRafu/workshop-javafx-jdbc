@@ -15,6 +15,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import model.services.DepartmentService;
 import workshop.javafx.jdbc.Main;
 
 /**
@@ -62,6 +63,28 @@ public class MainViewController implements Initializable{
         mainVBox.getChildren().clear();
         mainVBox.getChildren().add(mainMenu);
         mainVBox.getChildren().addAll(newVBox.getChildren());
+        
+    }catch(IOException e){
+        Alerts.showAlert("IOException", "Error loader view", e.getMessage(), AlertType.ERROR);
+    }
+    }
+    
+    private synchronized void loidView2(String absoluteName){
+        try{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+        VBox newVBox  = loader.load();
+        
+        Scene mainScene = Main.getMainScene();
+        VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+        
+        Node mainMenu = mainVBox.getChildren().get(0);
+        mainVBox.getChildren().clear();
+        mainVBox.getChildren().add(mainMenu);
+        mainVBox.getChildren().addAll(newVBox.getChildren());
+        
+        DepartmentListController controller = loader.getController();
+        controller.setDepartmentSertvice(new DepartmentService());
+        controller.updateTableView();
         
     }catch(IOException e){
         Alerts.showAlert("IOException", "Error loader view", e.getMessage(), AlertType.ERROR);
